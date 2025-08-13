@@ -1,0 +1,17 @@
+flask
+requests
+# Add any other libraries your project needs here
+# Core web framework
+flask
+
+# HTTP requests
+requests
+
+# OpenAI API client for AI agent
+openai
+
+# Optional: environment variable management
+python-dotenv
+
+# Optional: for advanced AI features / chaining
+# langchain
