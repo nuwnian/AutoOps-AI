@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoOps-AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Left Sidebar: Server Time -->
+    <div class="sidebar-left">
+        <div class="sidebar-time-label">Server Time</div>
+    <div id="server-time">{{ server_time }}</div>
+    </div>
+
+    <!-- Right Sidebar: Real Time -->
+    <div class="sidebar-right">
+        <div class="sidebar-time-label">Real Time</div>
+        <div id="real-time">--:--:--</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="main-navbar">
+        <div class="navbar-left">
+            <span class="navbar-title">AutoOps-AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About AutoOps-AI</h2>
+            <p>
+                AutoOps-AI is a minimal web application project designed to showcase cloud deployment, automation, and monitoring skills on Microsoft Azure. It demonstrates real-world DevOps practices, including CI/CD automation, health monitoring, and self-healing scripts for increased reliability. The project is intentionally simple to focus on infrastructure, automation, and best practices.
+            </p>
+            <ul>
+                <li>Azure App Service deployment</li>
+                <li>CI/CD with GitHub Actions</li>
+                <li>Health monitoring & self-healing</li>
+                <li>Modern, clean UI</li>
+                <li>Clear documentation</li>
+            </ul>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                &copy; 2025 <strong>AutoOps-AI</strong> &mdash; Built by nuwnian.<br>
+                <a href="https://github.com/nuwnian/AutoOps-AI" class="github-link">View on GitHub</a>
+            </div>
+        </footer>
+    </div>
+
+
+<script src="/static/main.js"></script>
+
+<script>
+// Real Time Clock (right sidebar)
+function updateRealTime() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('real-time').textContent = `${h}:${m}:${s}`;
+}
+setInterval(updateRealTime, 1000);
+updateRealTime();
+
+// Server Time Clock (left sidebar, live from backend)
+async function updateServerTime() {
+    try {
+        const res = await fetch('/api/server-time');
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById('server-time').textContent = data.server_time;
+        }
+    } catch (e) {
+        // Optionally handle error
+    }
+}
+setInterval(updateServerTime, 1000);
+updateServerTime();
+</script>
+
+</body>
+
+</html>
