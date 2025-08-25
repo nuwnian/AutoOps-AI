@@ -147,3 +147,61 @@ footer {
 	color: #0074d9;
 	text-decoration: none;
 }
+
+/* Responsive Design for Mobile */
+@media (max-width: 700px) {
+	.sidebar-left, .sidebar-right {
+		position: static;
+		width: 90vw;
+		max-width: 400px;
+		height: auto;
+		margin: 1em auto 0 auto;
+		flex-direction: row;
+		justify-content: space-between;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+		padding: 1em 1em;
+		font-size: 1em;
+	margin-top: 60px; /* Add space below navbar */
+	}
+	.sidebar-left {
+		left: 0;
+		border-right: none;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.sidebar-right {
+		right: 0;
+		border-left: none;
+		border-top: 1px solid #e0e0e0;
+	}
+	.main-navbar {
+		font-size: 1em;
+		padding: 0.5em 0.5em;
+	}
+	.navbar-title {
+		margin-left: 0.5em;
+		font-size: 1.1em;
+	}
+	.navbar-right {
+		margin-right: 0.5em;
+	}
+	.main-content {
+		margin-left: 0;
+		margin-right: 0;
+		padding-top: 70px;
+		padding-bottom: 90px;
+	}
+	section#about {
+		max-width: 98vw;
+		padding: 1.2em 0.5em 1em 0.5em;
+		font-size: 1em;
+		margin: 2em auto 0 auto;
+	}
+	footer {
+		font-size: 0.95em;
+		padding: 0.7em 0;
+	}
+	body {
+		font-size: 1em;
+	}
+}
